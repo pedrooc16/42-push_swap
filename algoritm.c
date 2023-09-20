@@ -1,3 +1,27 @@
+static int	num_check(const int *n, int len, t_stack *a)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	a->neg = 0;
+	while (++i < len)
+	{
+		j = i;
+		while (++j < len)
+		{
+			if (n[i] == n[j])
+				return (0);
+			if (!a->neg && n[i] < 0)
+				a->neg = 1;
+		}
+	}
+	return (1);
+}
+
+
+
+
 int	main(int argc, char **argv)
 {
 	int		i;
