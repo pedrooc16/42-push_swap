@@ -11,22 +11,34 @@ RM = rm -f
 
 OBJS = $(SRC_FILES:.c=.o)
 
-CC = gcc -g
-FLAGS = -Wall -Wextra -Werror
+CC = gcc
+FLAGS = -g -Wall -Wextra -Werror
 
 all: $(NAME) 
+
+LIBFT_DIR = ./libft
+LIBFT = $(LIBFT_DIR)/libft.a
 
 #§@ nome arquivo objeto
 #$< nome do pre-requisito
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $^
+$(NAME): $(OBJS) $(LIBFT)
+	$(CC) $(FLAGS) -o $@ $^ && echo "$(GREEN)Compiled successfully"
+
+%.o: %.c
+	$(CC) $(FLAGS) -c $< -o $@
+
+# Comando para compilar a biblioteca libft
+$(LIBFT):
+	make -C $(LIBFT_DIR)
 
 clean: 
 	$(RM) $(OBJS)
+	cd $(LIBFT_DIR) && make clean
 
 fclean:	clean
 	$(RM) $(NAME)
+	cd $(LIBFT_DIR) && make fclean
 
 re:	fclean	all
 
