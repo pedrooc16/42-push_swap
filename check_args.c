@@ -1,23 +1,24 @@
 #include "push_swap.h"
 
-int	check_args(char **av, int ac)
+int    check_args(char **av, int ac)
 {
-	int		i;
-	int		j;
+    int        i;
+    int        j;
 
-	i = 1;
-	while (av[i])
-	{
-		j = i + 1;
-		while (av[j]) {
-			if (!(check_args2(av[i]))) || (!(check_args2(av[j])))
-				return 0;
-				if (!(ft_strcmp(av[i], av[j])))
-					return 0;
-				j++;	
-		}
-		i++;
-	}
+    i = 1;
+    while (av[i])
+    {
+        j = i + 1;
+        while (av[j]) 
+        {
+            if ((!(check_args2(av[i]))) || (!(check_args2(av[j]))))
+              return 0;
+                if (!(ft_strcmp(av[i], av[j])))
+                  return 0;
+                j++;    
+        }
+        i++;
+    }
 }
 
 int	check_args2(char *av)
@@ -32,13 +33,14 @@ int	check_args2(char *av)
 	}
 	if (!av[i] || av[i] == '+' || av[i] == '-')
 	return (0);
-	while (av[i]) {
+	while (av[i]) 
+	{
 		if (!(ft_isdigit(av[i])))
 			return (0);
 		i++;
 	}
-	ft_atol(av[i], &flag);
-	if (*flag == 0);
+	ft_atol(av, &flag);
+	if (flag == 0)
 		return (0);
 	return (1);
 }
@@ -54,7 +56,7 @@ int		ft_strcmp(char *first, char *second)
 }
 
 
-void	ft_atol(const char *str, int i)
+void	ft_atol(const char *str, int * i)
 {
 	long	checker;
 	int		flag;
@@ -68,7 +70,7 @@ void	ft_atol(const char *str, int i)
 		}
 		str++;
 	}
-	while (*str && str >= '0' && *str <= '9')
+	while (*str && *str >= '0' && *str <= '9')
 	{
 		checker *= 10;
 		checker += (flag *(*str - 48));
