@@ -3,6 +3,13 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+typedef struct node
+{
+    int element;
+    int order;
+    node    *next;
+} node ;
+
 void	ft_atol(const char *str, int * i);
 int    check_args(char **av, int ac);
 int	check_args2(char *av);
@@ -188,6 +195,8 @@ void	ft_atol(const char *str, int * i)
 
 int main(int ac, char **av)
 {
+
+	node	*stacks[2];
 	if (!(count_args(av, ac))){
 		write(1, "error", 4);
 			return 0;
@@ -217,7 +226,17 @@ int		count_args(char **av, int ac)
 	}
 	if(!(check_args(args, i)))
 		return (0);
+	ft_free(args, i);
 	return (1);
+}
+
+void	ft_free(char **av, int ac)
+{
+	if (ac != 2)
+	return ;
+
+	while (av[i])
+	free(av[i]);
 }
 
 
