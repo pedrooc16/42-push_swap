@@ -1,3 +1,11 @@
+typedef struct node
+{
+    int element;
+    int order;
+    node    *next;
+} node ;
+
+
 void initializeList(node **head, char **argv) 
 {    
 	node *tmp;
@@ -65,6 +73,18 @@ int		isOrdered(node **head)
 	return (isOrdered);
 }
 
+node	get_last(node **head)
+{	
+	node	*tmp;
+
+	tmp = *head;
+	while (tmp->next != NULL)
+	{
+		tmp = tmp->next;
+	}
+	return (tmp);
+}
+
 void get_order(node **head, int argc) {
    
     node *current = *head;
@@ -82,7 +102,6 @@ void get_order(node **head, int argc) {
             if (current->order == 0 && current->number < min_number) {
                 min_number = current->number;
                 min_node = current;
-
             }
             current = current->next;
         }
