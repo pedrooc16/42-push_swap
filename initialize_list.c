@@ -73,7 +73,7 @@ int		isOrdered(node **head)
 	return (isOrdered);
 }
 
-node	get_last(node **head)
+node	*get_last(node **head)
 {	
 	node	*tmp;
 
