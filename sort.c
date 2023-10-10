@@ -11,20 +11,20 @@ int		get_max(node **head)
   max = (*head)->order;
   bits = 0;
   while (temp != NULL)
- { 
-   if (temp->order > max)
-   {
-    max = temp->order; 
-   }
-   temp = temp->next;
- }
+ 	{ 
+   		if (temp->order > max)
+   		{
+    		max = temp->order; 
+   		}
+   		temp = temp->next;
+ 	}
   while (1)
- {
-  max >>= bits;
-  bits++; 
-  if (max == 0)
-    break;
- }
+	{
+  		max >>= bits;
+  		bits++; 
+  	if (max == 0)
+    	break;
+ 	}
  return (bits);
 }
 

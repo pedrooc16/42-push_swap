@@ -28,26 +28,6 @@ void initializeList(node **head, char **argv)
     }
 }
 
-void    ft_free(node **head)
-{
-    node    *temp;
-    node    *current;
-
-    temp = *head;
-	current = NULL;
-	if (*head)
-	{
-    	while (temp != NULL)
-    	{
-        current = temp->next;
-		free(temp);
-		temp = current;
-    	}
-	}	
-	write(1, "Error\n", 6);
-	exit(EXIT_FAILURE);
-}
-
 node    *create_node(node *tmp, char *argv)
 {
     node    *new_node;

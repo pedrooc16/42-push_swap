@@ -109,19 +109,5 @@ int		count_args(char **av, int ac)
 	return (1);
 }
 
-void	ft_free_array(char **av, int ac)
-{
-	int i;
-
-	i = 0;
-	if (ac != 2)
-		return;
-
-	while (av[i])
-	{
-		free(av[i]);
-		i++;
-	}
-}
 
 
