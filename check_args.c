@@ -105,10 +105,11 @@ int		count_args(char **av, int ac)
 	}
 	if(!(check_args(args, i)))
 		return (0);
+	ft_free_array(args, ac);
 	return (1);
 }
 
-void	ft_free(char **av, int ac)
+void	ft_free_array(char **av, int ac)
 {
 	int i;
 

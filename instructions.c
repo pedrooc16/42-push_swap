@@ -2,19 +2,16 @@
 
 void ra(node **head)
 {
-    if (*head == NULL || (*head)->next == NULL)
-        return;
-        rotate(head);
-        write(1, "ra\n", 3);
+    if (rotate(head))
+    	write(1, "ra\n", 3);
+    return;
 }
 
 void	rb(node **head)
 {
-	if (*head == NULL || (*head)->next == NULL)
-        return;
-		if (rotate(head))
-			write(1, "rb\n", 3);
-		return;
+	if (rotate(head))
+		write(1, "rb\n", 3);
+	return;
 	
 }
 

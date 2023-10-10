@@ -1,10 +1,4 @@
-typedef struct node
-{
-    int element;
-    int order;
-    node    *next;
-} node ;
-
+#include "./includes/push_swap.h"
 
 void initializeList(node **head, char **argv) 
 {    
@@ -41,19 +35,16 @@ void    ft_free(node **head)
 
     temp = *head;
 	current = NULL;
-    if (*head == NULL)
-    {
-        write(1, "Error\n", 6);
-    }
-	else {
-    while (temp != NULL)
-    {
+	if (*head)
+	{
+    	while (temp != NULL)
+    	{
         current = temp->next;
 		free(temp);
 		temp = current;
-    }
+    	}
+	}	
 	write(1, "Error\n", 6);
-	}
 	exit(EXIT_FAILURE);
 }
 
