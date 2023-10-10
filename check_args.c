@@ -1,4 +1,6 @@
 #include "./includes/push_swap.h"
+#include "./libft/libft.h"
+
 
 int    check_args(char **av, int i)
 {

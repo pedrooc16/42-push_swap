@@ -6,9 +6,12 @@
 /*   By: pecosta- <pecosta-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 14:02:38 by pecosta-          #+#    #+#             */
-/*   Updated: 2023/10/09 19:29:11 by pecosta-         ###   ########.fr       */
+/*   Updated: 2023/10/10 16:46:14 by pecosta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "./includes/push_swap.h"
+#include "./libft/libft.h"
 
 int    swap(node **head) //sa and sb
 {
@@ -36,7 +39,7 @@ int    rotate(node **head) // ra and rb
 
     tmp = *head; 
     first = get_last(head);
-    *head = *(head)->next;
+    *head = (*head)->next;
     first->next = tmp;
     tmp->next = NULL;
 	return (1);

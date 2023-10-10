@@ -1,4 +1,5 @@
 #include "./includes/push_swap.h"
+#include "./libft/libft.h"
 
 void initializeList(node **head, char **argv) 
 {    
@@ -28,14 +29,14 @@ void initializeList(node **head, char **argv)
     }
 }
 
-node    *create_node(node *tmp, char *argv)
+node    *create_node(char *tmp)
 {
     node    *new_node;
 
     new_node = NULL;
      if (!(new_node = (node *)malloc(sizeof(node))))
             return (new_node);
-        new_node->element = atoi(argv[i]);
+        new_node->number = atoi(tmp);
         new_node->next = NULL;
     return (new_node);
 }
@@ -71,7 +72,7 @@ int		isOrdered(node **head)
 	temp = *head;
 	while (temp->next != NULL)
 	{
-		if (temp->element > temp->next->element)
+		if (temp->number > temp->next->number)
 		{
 		isOrdered = 0;
 		return (isOrdered);
@@ -93,18 +94,18 @@ node	*get_last(node **head)
 	return (tmp);
 }
 
-void get_order(node **head, int argc) {
-   
+void get_order(node **head, int argc)
+{   
     node *current = *head;
 	node	*min_node;
-    int order = 1;
+    int order;
 
+    order = 1;
     while (order <= argc) 
 	{
         // Inicializa o valor mínimo e o nó correspondente
         int min_number = 24888743; // Use INT_MAX como um valor inicial máximo.
-        *min_node = NULL;
-
+        min_node = NULL;
         // Percorre a lista para encontrar o valor mínimo entre os nós não marcados
         while (current != NULL) {
             if (current->order == 0 && current->number < min_number) {
@@ -113,7 +114,6 @@ void get_order(node **head, int argc) {
             }
             current = current->next;
         }
-
         // Se encontramos um valor mínimo, atribuímos a ordem e incrementamos
         if (min_node != NULL) {
             min_node->order = order;
@@ -122,7 +122,6 @@ void get_order(node **head, int argc) {
             // Não encontramos um valor mínimo, terminamos a iteração
             break;
         }
-
         // Reinicializamos para a próxima iteração
         current = *head;
     }

@@ -1,4 +1,5 @@
 #include "./includes/push_swap.h"
+#include "./libft/libft.h"
 
 //função para acharmos o maior numero de bits
 int		get_max(node **head)
@@ -32,6 +33,7 @@ void	sort_radix(node **stack_a, node **stack_b)
 {
 	int		max;
 	int		size;
+	int		i;
 
 	max = get_max(stack_a);
 	size = 0;

@@ -1,4 +1,5 @@
 #include "./includes/push_swap.h"
+#include "./libft/libft.h"
 
 //esta função libera a memoria alocada pela função split
 void	ft_free_array(char **av, int ac)

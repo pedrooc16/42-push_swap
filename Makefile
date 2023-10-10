@@ -4,7 +4,14 @@ NAME = push_swap
 GREEN 	= \033[0;32m
 RED 	= \033[0;31m
 
-SRC_FILES = main.c 
+SRC_FILES = main.c\
+		check_args.c\
+		free.c\
+		instructions.c\
+		lists_utils.c\
+		movements.c\
+		sort.c\
+
 RM = rm -f
 
 OBJS = $(SRC_FILES:.c=.o)
@@ -21,10 +28,10 @@ LIBFT = $(LIBFT_DIR)/libft.a
 #$< nome do pre-requisito
 
 $(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(FLAGS) -o $@ $^ && echo "$(GREEN)Compiled successfully"
+	$(CC) $(FLAGS) -o $@ $^ -I$(LIBFT_DIR) && echo "$(GREEN)Compiled successfully"
 
 %.o: %.c
-	$(CC) $(FLAGS) -c $< -o $@
+	$(CC) $(FLAGS) -c $< -o $@ -I$(LIBFT_DIR)
 
 # Comando para compilar a biblioteca libft
 $(LIBFT):
