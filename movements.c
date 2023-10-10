@@ -6,11 +6,11 @@
 /*   By: pecosta- <pecosta-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 14:02:38 by pecosta-          #+#    #+#             */
-/*   Updated: 2023/10/09 18:13:21 by pecosta-         ###   ########.fr       */
+/*   Updated: 2023/10/09 19:29:11 by pecosta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int    swap(node **head)
+int    swap(node **head) //sa and sb
 {
     if (*head == NULL || (*head)->next == NULL) 
     {
@@ -27,7 +27,7 @@ int    swap(node **head)
 	return (1);
 }
 
-int    rotate(node **head)
+int    rotate(node **head) // ra and rb 
 {
     if (*head == NULL || (*head)->next == NULL)
         return (0);
@@ -42,7 +42,7 @@ int    rotate(node **head)
 	return (1);
 }
 
-int    push(node **stack1, node **stack2)
+int    push(node **stack1, node **stack2) //pa and pb 
 {
     if (*stack1 == NULL)
         return (0);
@@ -66,7 +66,7 @@ int    push(node **stack1, node **stack2)
     return (1);
 }
 
-int    reverse_rotate(node **head)
+int    reverse_rotate(node **head) //rra and rrb
 {
     if (*head == NULL || (*head)->next == NULL)
         return (0);

@@ -13,12 +13,14 @@ void initializeList(node **head, char **argv)
 	int i;
     
 	i = -1;
+    new_node = NULL;
     while (argv[++i])
     {
-      if (!(new_node = (node *)malloc(sizeof(node))))
-        free(new_node);
-      new_node->element = atoi(argv[i]);
-      new_node->next = NULL;
+       new_node = create_node(argv[i]);
+       if (new_node == NULL)
+        {
+            ft_free(head);
+        }
       if (*head == NULL)
       {
       *head = new_node;
@@ -30,7 +32,42 @@ void initializeList(node **head, char **argv)
       tmp = new_node;
       } 
     }
-  }
+}
+
+void    ft_free(node **head)
+{
+    node    *temp;
+    node    *current;
+
+    temp = *head;
+	current = NULL;
+    if (*head == NULL)
+    {
+        write(1, "Error\n", 6);
+    }
+	else {
+    while (temp != NULL)
+    {
+        current = temp->next;
+		free(temp);
+		temp = current;
+    }
+	write(1, "Error\n", 6);
+	}
+	exit(EXIT_FAILURE);
+}
+
+node    *create_node(node *tmp, char *argv)
+{
+    node    *new_node;
+
+    new_node = NULL;
+     if (!(new_node = (node *)malloc(sizeof(node))))
+            return (new_node);
+        new_node->element = atoi(argv[i]);
+        new_node->next = NULL;
+    return (new_node);
+}
 
 int		get_size(node **head)
 {

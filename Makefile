@@ -3,8 +3,6 @@ NAME = push_swap
 # Collors
 GREEN 	= \033[0;32m
 RED 	= \033[0;31m
-BLUE 	= \033[0;34m
-RESET 	= \033[0m
 
 SRC_FILES = main.c 
 RM = rm -f

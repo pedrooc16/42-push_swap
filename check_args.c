@@ -1,111 +1,4 @@
-//#include "push_swap.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-
-typedef struct node
-{
-    int element;
-    int order;
-    node    *next;
-} node ;
-
-void	ft_atol(const char *str, int * i);
-int    check_args(char **av, int ac);
-int	check_args2(char *av);
-int		ft_strcmp(char *first, char *second);
-void	ft_atol(const char *str, int * i);
-char	**ft_split(char const *s, char c);
-int		count_args(char **av, int ac); 
-int	ft_isdigit(int c);
-
-int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
-
-static int    word_count(char const *s, char c) 
-{
-    int i;
-    int counter;
-    int words;
-    
-    counter = 0; 
-    i = 0;
-    while(s[i])
-    {
-      words = 0;
-      while (s[i] == c && s[i] != '\0')
-      i++;
-       while (s[i] != c && s[i] != '\0'){
-        i++;
-        words = 1;
-       }
-        if (words == 1)
-        counter++;
-    }
-    return(counter);
-}
-
-//descobrir o tamanho para alocar ao array[i]
-static int	get_size(char const *s, char c, int counter)
-{
-	int	size;
-
-	size = 0;
-	while (s[counter] == c && s[counter] != '\0')
-		counter++;
-	while (s[counter] != c && s[counter] != '\0')
-	{
-		counter++;
-		size++;
-	}
-	return (size);
-}
-
-static char	**make_split(char **array, char c, char const *s)
-{
-	int	size;
-	int	counter;    //para percorrer a string
-	int	index;
-	int	seccounter;
-
-	counter = 0;
-	index = 0;
-	while (s[counter] != '\0')
-	{
-		seccounter = 0;
-		while (s[counter] == c && s[counter] != '\0')
-			counter++;
-		size = get_size(s, c, counter);
-		array[index] = (char *) malloc ((size + 1) * sizeof(char));
-		if (!array[index])
-			return (NULL);
-		while (s[counter] != c && s[counter] != '\0')
-			array[index][seccounter++] = s[counter++];
-		array[index][seccounter] = '\0';
-		index++;
-	}
-	array[index] = NULL;
-	return (array);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	int		words;
-	char	**array;
-
-	if (s == NULL)
-		return (NULL);
-	words = word_count(s, c);
-	array = (char **) malloc ((words + 1) * sizeof(char *));
-	if (!array)
-		return (NULL);
-	array = make_split(array, c, s);
-	return (array);
-}
+#include "./includes/push_swap.h"
 
 int    check_args(char **av, int i)
 {
@@ -192,20 +85,6 @@ void	ft_atol(const char *str, int * i)
 		*i = 1;
 }
 
-
-int main(int ac, char **av)
-{
-
-	node	*stacks[2];
-	if (!(count_args(av, ac))){
-		write(1, "error", 4);
-			return 0;
-		}
-	//printf("successful");
-	write(1, "successful", 11);
-	return 1;
-}
-
 int		count_args(char **av, int ac)
 {
 	char	**args;
@@ -226,17 +105,22 @@ int		count_args(char **av, int ac)
 	}
 	if(!(check_args(args, i)))
 		return (0);
-	ft_free(args, i);
 	return (1);
 }
 
 void	ft_free(char **av, int ac)
 {
+	int i;
+
+	i = 0;
 	if (ac != 2)
-	return ;
+		return;
 
 	while (av[i])
-	free(av[i]);
+	{
+		free(av[i]);
+		i++;
+	}
 }
 
 
