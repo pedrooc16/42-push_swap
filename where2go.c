@@ -16,22 +16,14 @@ void    where2go(node **stack_a, node **stack_b)
 
 void    sort3(node **stack_a)
 {
-    node    *temp;
     node    *temp1;
 
-    temp = *stack_a;
+    //temp = *stack_a;
 	temp1 = get_last(stack_a);
-	if (temp->number > temp->next->number)
-        ra(stack_a);
-	if (temp->number > temp->next->number)
+	if ((*stack_a)->number > (*stack_a)->next->number)
         sa(stack_a);
-	if (temp1->number < temp->number || temp1->number < temp->next->number)
+	if (temp1->number < (*stack_a)->next->number || temp1->number < (*stack_a)->next->number)
         rra(stack_a);
-	//hile (temp != NULL)
-	//{
-	//	printf("%d\n", temp->number);
-	//	temp = temp->next;
-	//}
-		//if (temp1->number > temp->number)
-			//sa(stack_a);
+	if ((*stack_a)->number > (*stack_a)->next->number)
+        sa(stack_a);
 }
