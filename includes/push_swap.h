@@ -28,6 +28,8 @@ void	rrb(node **head);
 void	rrr(node **stack_a, node **stack_b);
 void    sa(node **stack_a);
 void  sb(node **stack_b);
+void    where2go(node **stack_a, node **stack_b);
+void    sort3(node **stack_a);
 void    ss(node **stack_a, node **stack_b);
 void initializeList(node **head, char **argv);
 node    *create_node(char *tmp);
@@ -41,6 +43,6 @@ int    push(node **stack1, node **stack2);
 int    reverse_rotate(node **head);
 void	pa(node **stack_a, node **stack_b);
 void	pb(node **stack_b, node **stack_a);
-
+void     print_list(node **head);
 
 #endif

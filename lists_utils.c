@@ -29,6 +29,19 @@ void initializeList(node **head, char **argv)
     }
 }
 
+void     print_list(node **head)
+{
+    node    *temp;
+
+    temp = *head;
+
+    while (temp)
+    {
+        printf("%d\n", temp->number);
+        temp = temp->next;
+    }
+}
+
 node    *create_node(char *tmp)
 {
     node    *new_node;
@@ -52,7 +65,7 @@ int		get_size(node **head)
 
 	temp = *head;
 	i = 0;
-	while (temp->next != NULL)
+	while (temp != NULL)
 	{
 		i++;
 		temp = temp->next;

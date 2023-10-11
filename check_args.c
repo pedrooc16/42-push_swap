@@ -6,8 +6,6 @@ int    check_args(char **av, int i)
 {
 	int		j;
 
-	printf("%s\n", av[0]);
-	printf("%s\n", av[1]);
 	if (!(check_args2(av[i])))
 		return (0);
     while (av[i])
@@ -36,7 +34,7 @@ int	check_args2(char *av)
 	{
 		i++;
 	}
-	if ( av[i] == '0' || av[i] == '+' || av[i] == '-')
+	if ( av[1] == '0' || av[i] == '+' || av[i] == '-')
 	return (0);
 	while (av[i]) 
 	{
@@ -94,7 +92,8 @@ int		count_args(char **av, int ac)
 
 	if (ac < 2)
 		return (0);
-	if (ac == 2) {
+	if (ac == 2) 
+	{
 	args = ft_split(av[1], ' ');
 	i = 0;
 	if (args[1] == 0)
@@ -106,7 +105,10 @@ int		count_args(char **av, int ac)
 		i = 1;
 	}
 	if(!(check_args(args, i)))
+	{
+		ft_free_array(args, ac);
 		return (0);
+	}
 	ft_free_array(args, ac);
 	return (1);
 }
