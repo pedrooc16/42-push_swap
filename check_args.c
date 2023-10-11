@@ -33,9 +33,9 @@ int	check_args2(char *av)
 	if (av[i] == '-' || av[i] == '+')
 	{
 		i++;
+		if (av[i] == '0' || av[i] == '+' || av[i] == '-')
+			return (0);
 	}
-	if ( av[1] == '0' || av[i] == '+' || av[i] == '-')
-	return (0);
 	while (av[i]) 
 	{
 		if (!(ft_isdigit(av[i])))

@@ -65,16 +65,16 @@ void    ss(node **stack_a, node **stack_b)
     return;
 }
 
-void	pa(node **stack_a, node **stack_b)
+void	pa(node **stack_b, node **stack_a)
 {
-	if (push(stack_a, stack_b))
+	if (push(stack_b, stack_a))
 		write(1, "pa\n", 3);
 	return;
 }
 
-void	pb(node **stack_b, node **stack_a)
+void	pb(node **stack_a, node **stack_b)
 {
-	if (push(stack_b, stack_a))
-		write(1, "pa\n", 3);
+	if (push(stack_a, stack_b))
+		write(1, "pb\n", 3);
 	return;
 }

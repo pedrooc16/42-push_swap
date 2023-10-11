@@ -50,6 +50,7 @@ node    *create_node(char *tmp)
      if (!(new_node = (node *)malloc(sizeof(node))))
             return (new_node);
         new_node->number = atoi(tmp);
+        new_node->order = -1;
         new_node->next = NULL;
     return (new_node);
 }
@@ -107,21 +108,21 @@ node	*get_last(node **head)
 	return (tmp);
 }
 
-void get_order(node **head, int argc)
+void get_order(node **head)
 {   
     node *current = *head;
 	node	*min_node;
     int order;
 
-    order = 1;
-    while (order <= argc) 
+    order = 0;
+    while (1) 
 	{
         // Inicializa o valor mínimo e o nó correspondente
         int min_number = 24888743; // Use INT_MAX como um valor inicial máximo.
         min_node = NULL;
         // Percorre a lista para encontrar o valor mínimo entre os nós não marcados
         while (current != NULL) {
-            if (current->order == 0 && current->number < min_number) {
+            if (current->order == -1 && current->number < min_number) {
                 min_number = current->number;
                 min_node = current;
             }

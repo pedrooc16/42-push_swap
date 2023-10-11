@@ -36,13 +36,15 @@ node    *create_node(char *tmp);
 int		get_size(node **head);
 int		isOrdered(node **head);
 node	*get_last(node **head);
-void get_order(node **head, int argc);
+void get_order(node **head);
 int    swap(node **head);
 int    rotate(node **head);
 int    push(node **stack1, node **stack2);
 int    reverse_rotate(node **head);
-void	pa(node **stack_a, node **stack_b);
-void	pb(node **stack_b, node **stack_a);
+void	pa(node **stack_b, node **stack_a);
+void	pb(node **stack_a, node **stack_b);
 void     print_list(node **head);
+void	sort_radix(node **stack_a, node **stack_b);
+int		get_max(node **head);
 
 #endif
