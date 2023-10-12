@@ -12,6 +12,6 @@ int main(int ac, char **av)
 		}
         initializeList(stacks, av + 1);
         where2go(stacks, stacks + 1);
-        print_list(stacks);
+       // print_list(stacks);
 	return 1;
 }

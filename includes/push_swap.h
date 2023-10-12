@@ -30,6 +30,7 @@ void    sa(node **stack_a);
 void  sb(node **stack_b);
 void    where2go(node **stack_a, node **stack_b);
 void    sort3(node **stack_a);
+void	sort5(node	**stack_a, node **stack_b);
 void    ss(node **stack_a, node **stack_b);
 void initializeList(node **head, char **argv);
 node    *create_node(char *tmp);
@@ -46,5 +47,7 @@ void	pb(node **stack_a, node **stack_b);
 void     print_list(node **head);
 void	sort_radix(node **stack_a, node **stack_b);
 int		get_max(node **head);
+void	find_min_and_max(node **stack_a, int *min, int *max);
+void	merge(node **stack_a, node **stack_b);
 
 #endif
