@@ -12,6 +12,8 @@ SRC_FILES = main.c\
 		movements.c\
 		sort.c\
 		where2go.c\
+		sort_small.c\
+		utils.c\
 
 RM = rm -f
 

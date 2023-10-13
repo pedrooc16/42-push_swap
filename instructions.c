@@ -72,9 +72,12 @@ void	pa(node **stack_b, node **stack_a)
 	return;
 }
 
-void	pb(node **stack_a, node **stack_b)
+int		pb(node **stack_a, node **stack_b)
 {
 	if (push(stack_a, stack_b))
+	{
 		write(1, "pb\n", 3);
-	return;
+		return (1);
+	}
+	return (0);
 }
