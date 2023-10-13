@@ -33,7 +33,9 @@ void    ft_free(node **head)
 		free(temp);
 		temp = current;
     	}
-	}	
+		*head = NULL;
+	}
+		
 }
 
 void    ft_free_and_exit(node **head)

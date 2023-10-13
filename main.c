@@ -2,19 +2,16 @@
 
 int main(int ac, char **av)
 {
-	if (ac < 2)
-		return (0);
-	if (!(check_args(av, ac)))
+	if (ac < 2 || !check_args(av, ac))
 	{
-        ft_free_array(av, ac);
 		write(1, "error\n", 6);
-			return (0);
+		return (1);
 	}
 	else {
 		node	*stacks[2];
+		stacks[1] = NULL;
         count_args(av, stacks, ac);
         where2go(stacks, stacks + 1);
-       // print_list(stacks);
-	return (1);
+		return (0);
 	}
 }

@@ -56,16 +56,19 @@ int		check_args(char **av, int ac)
 	{
 	args = ft_split(av[1], ' ');
 	i = 0;
-	if (args[1] == 0)
-		return (0);
+		if(!(is_valid(args, i)))
+		{
+			ft_free_array(args,ac);
+			return (0);
+		}
 	}
 	else 
 	{
 		args = av;
 		i = 1;
+		if(!(is_valid(args, i)))
+			return (0);
 	}
-	if(!(is_valid(args, i)))
-		return (0);
 	ft_free_array(args, ac);
 	return (1);
 }

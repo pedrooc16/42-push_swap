@@ -35,7 +35,7 @@ void     print_list(node **head)
 
     temp = *head;
 
-    while (temp)
+    while (temp != NULL)
     {
         printf("%d\n", temp->number);
         temp = temp->next;
@@ -77,8 +77,7 @@ int		get_size(node **head)
 int		isOrdered(node **head)
 {
 	 if (*head == NULL || (*head)->next == NULL) 
-        // Lista vazia ou com apenas um elemento, considerada ordenada
-        return 1;
+        return (1);
 	node	*temp;
 	int		isOrdered;
 

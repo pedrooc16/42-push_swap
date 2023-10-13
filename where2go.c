@@ -12,8 +12,14 @@ void    where2go(node **stack_a, node **stack_b)
 			sort4(stack_a, stack_b);
     else if (get_size(stack_a) <= 5)
 		sort5(stack_a, stack_b);
-	else if (get_size(stack_a) <= 500)
+	else if (get_size(stack_a) <= 100)
+	{
+		get_order(stack_a);
 		sort_radix(stack_a, stack_b);
+	}
+	ft_free(stack_a);
+	//ft_free(stack_b);
+	
 }
 
 void	count_args(char **av, node **stack_a, int ac)

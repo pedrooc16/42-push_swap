@@ -42,8 +42,6 @@ void	sort_radix(node **stack_a, node **stack_b)
 				ra(stack_a);
 			size--;
 		}
-		//int x = get_size(stack_b);
-		//printf("size is %d\n", x);
 		while (get_size(stack_b) > 0)
 		{
 			pa(stack_b, stack_a);
