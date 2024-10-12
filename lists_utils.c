@@ -50,6 +50,7 @@ node    *create_node(char *tmp)
      if (!(new_node = (node *)malloc(sizeof(node))))
             return (new_node);
         new_node->number = atoi(tmp);
+        //I don't remember the point of this line
         new_node->order = -1;
         new_node->next = NULL;
     return (new_node);
